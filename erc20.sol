@@ -35,10 +35,10 @@ contract TokenERC20 {
 
         require(_to != 0x0);    // 不是零地址
         require(balanceOf[_from] >= _value);        // 有足够的余额来发送
-        require(balanceOf[_to] + _value > balanceOf[_to]);  // 这里也有意思, 不能发送负数的值(hhhh)
+        require(balanceOf[_to] + _value > balanceOf[_to]);  // 不能发送负数的值
 
-        uint previousBalances = balanceOf[_from] + balanceOf[_to];  // 这个是为了校验, 避免过程出错, 总量不变对吧?
-        balanceOf[_from] -= _value; //发钱 不多说
+        uint previousBalances = balanceOf[_from] + balanceOf[_to];  // 这个是为了校验, 避免过程出错, 总量不变
+        balanceOf[_from] -= _value; //发钱
         balanceOf[_to] += _value;
         Transfer(_from, _to, _value);   // 这里触发了转账的事件 , 见上event
         assert(balanceOf[_from] + balanceOf[_to] == previousBalances);  // 判断总额是否一致, 避免过程出错
