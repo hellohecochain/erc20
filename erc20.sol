@@ -4,8 +4,8 @@ interface tokenRecipient { function receiveApproval(address _from, uint256 _valu
 
 contract TokenERC20 {
 /*********Token的属性说明************/
-    string public name = 4FunCoin;
-    string public symbol = 4FC;
+    string public name;
+    string public symbol;
     uint8 public decimals = 18;  // 18 是建议的默认值
     uint256 public totalSupply; // 发行量
 
