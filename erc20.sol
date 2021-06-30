@@ -1,6 +1,6 @@
 pragma solidity ^0.4.16;
 
-interface tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) public; }  // token的 接受者 这里声明接口, 将会在我们的ABI里
+
 
 contract TokenERC20 {
 /*********Token的属性说明************/
